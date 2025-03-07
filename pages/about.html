@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Loops</title>
+    <link rel="stylesheet" href="\css/styles.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <img src="../images/logo.png" alt="Our Logo">
+            <div class="navLinks">
+
+                <!-- <img src="images/siteLogo.png" alt="Site Logo"> -->
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <p>||</p>
+                    <li><a href="about.html">About</a></li>
+                    <p>||</p>
+                    <li><a href="people.html">People</a></li>
+                    <p>||</p>
+                    <li><a href="contact.html">Contact</a></li>
+                    <p>||</p>
+                    <li><a href="example.html">Example</a></li>
+                </ul>
+
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="mainSection" class="loopsSection">
+            <div class="text">
+                <h1>Loops and Conditionals</h1>
+                <p>Loops and conditional statements are fundamental concepts in programming that allow you to control
+                    the flow
+                    of your code and perform repetitive tasks based on certain conditions.</p>
+                <h2>Loops:</h2>
+                <p class="overview">
+                    Loops are used to execute a block of code repeatedly until a specified condition is met. There are
+                    various
+                    types of loops in programming, but the most common ones are <span id="boldText">for </span>loops,
+                    <span id="boldText">while </span>loops, and
+                    <span id="boldText">do-while</span> loops.
+                </p>
+                <div class="forLoops">
+                    <h3>For Loops-</h3>
+                    <p>This loop uses a varible (normally i for interger) as a counter, and completes the block of code
+                        until it reaches a limit. </p>
+                    <div class="code-block">
+                        <code>
+                       <span class="parameter">for(i = 0; i < 5; i++) { <br>
+                        <span class="indented"> console.log("Iteration " + (i + 1)); 
+                        </span>
+                        <br> }
+                       <br><br>
+
+                        //This code will put a log in the console stating the iteration, before increasing variable i. When i reaches 5, the loop will close.
+                        </span>
+                      </code>
+                    </div>
+                </div>
+                <div class="whileLoops">
+                    <h3>While Loops-</h3>
+                    <p>The while loop repeatedly executes a block of code as long as the specified condition is true. It
+                        evaluates the condition before executing the code block, which means that if the condition is
+                        initially false, the code block will not be executed at all. </p>
+                    <div class="code-block">
+                        <code>
+                       <span class="parameter">int i = 0; <br><br>
+                        while (i < 5) { <br>
+                           <span class="indented"> console.log(i); </span><br>
+                           <span class="indented"> i++; </span>
+                       
+                        <br> }
+                        <br><br>
+
+                        //This code will log the number i is, as long as i is below five. After the number enters the log, the loop adds one to i and repeats.
+                        </span>
+                      </code>
+                    </div>
+                </div>
+                <div class="doWhileLoops">
+                    <h3>Do While Loops-</h3>
+                    <p>The do-while loop is similar to the while loop, but it executes the code block once before
+                        checking the condition. This ensures that the code block is executed at least once, even if the
+                        condition is false initially.</p>
+                    <div class="code-block">
+                        <code>
+                       <span class="parameter">int i = 5; <br><br>
+                        do { <br>
+                           <span class="indented">console.log(i); </span><br>
+                            <span class="indented">i++;</span> <br>
+                       
+                        <br> } while (i<5);
+                        <br><br>
+
+                        //This code will run once, logging the value of i in the console. Afterwards, becasue i will is higher than 5, it will not run again.
+                        </span>
+                      </code>
+                    </div>
+                </div>
+                <div class="conditionalOverview">
+                    <h2>Conditionals:</h2>
+                    <p>Conditionals are statements that only work <span id="boldText">if</span> a specific condidtion is
+                        true. There are three types: <span id="boldText">if </span>statements, <span id="boldText">if,
+                            else </span>statements, and <span id="boldText">if, else if </span>statements. There are
+                        also <span id="boldText">switch </span>statements, but we will not be covering those in this
+                        website.</p>
+                </div>
+                <div class="ifStatement">
+                    <h3>If Statments-</h3>
+                    <p>The if statement will run only as long as the condition is true. If the condition is not true,
+                        the code will be skipped (which can cause massive issues).</p>
+                    <div class="code-block">
+                        <code>
+                       <span class="parameter">if($username != ""){ <br>
+                        <span class="indented"> console.log ('Welcome, ' + $username)
+
+                        </span>
+                         
+                        <br> }
+                       <br><br>
+
+                        //This code will make sure username is not blank ( != means does NOT equal) and then log "Welcome," followed by the username. <br><br>
+                        
+                        //NOTE: If there is no username, this code will cause an error within the webpage, possibly causing it to be unable to run.
+                        </span>
+                      </code>
+                    </div>
+                </div>
+                <div class="ifElseStatement">
+                    <h3>If, Else Statements-</h3>
+                    <p>The if, else statement is a if statement with one major difference: it won't break everything if
+                        the condidion isn't met. Instead, the loop will simply avoid the code within the "if" section,
+                        instead running the "else" code.</p>
+                    <div class="code-block">
+                        <code>
+                       <span class="parameter">var temperature = 58; <br><br>
+
+                        if (temperature > 70) { <br>
+                        <span class="indented">console.log("It's a hot day!");</span>  <br>
+                        } else { <br>
+                           <span class="indented"> console.log("It's not too hot today.");</span><br>
+                        } <br><br>
+
+                       //This code will display "It's a hot day!" if the temp. is over 70 degrees, or display "It's not too hot today." in any other case. <br><br>
+
+                       //In our example, the latter would occour, because the temperature is 58 and 58<70.
+                        </span>
+                      </code>
+                    </div>
+                </div>
+                <div class="elseIfStatement">
+                    <h3>If, Else If Statements-</h3>
+                    <p>This is a combination of the previous two statements. When the "if" condition is true, the
+                        corresponding code block is executed. If the "if" condition is false, the "else if" condition is
+                        checked, and so on. If none of the conditions are true, the code inside the "else" block is
+                        executed.</p>
+                    <div class="code-block">
+                        <code>
+                       <span class="parameter">let num = 10; <br><br>
+
+                        if (num > 10) { <br>
+                          <span class="indented">console.log("Number is greater than 10"); </span><br>
+                        } else if (num < 10) { <br>
+                           <span class="indented">console.log("Number is less than 10");</span><br>
+                        } else { <br>
+                           <span class="indented">console.log("Number is equal to 10");</span><br>
+                        } <br><br>  //This code will say if a number is less than, more than, or equal to 10. In our example, the first "if" statement would be skipped, as 10 is not more than 10. The second statement would also be skipped, becasuse 10 isn't less than 10 either. This leaves only the "else" statement, which is the correct one!
+                        </span>
+                      </code>
+                    </div>
+                </div>
+
+            </div>
+            <div class="aboutImgs">
+                <img src="../images/forLoopMeme.png" alt="A Meme About For Loops">
+                <p class="imgCaption">Try as you might, you can't get rid of i.</p>
+                <img src="../images/whileLoopMeme.jpg" alt="A Meme About While Loops">
+                <p class="imgCaption">Careful with do while loops! They ALWAYS run once.</p>
+                <div class="spacer">
+                </div>
+                <!-- <img src="../images/ifElseMeme.png" alt=""> -->
+            </div>
+
+        </div>
+
+
+    </main>
+    <footer>
+        <p>&copy; 2024 Evan Schmitt Teaching Project</p>
+    </footer>
+</body>
+
+</html>

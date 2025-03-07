@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact: Conditional Demonstration</title>
+    <link rel="stylesheet" href="\css/styles.css">
+</head>
+
+<body>
+    <div class="wholePage">
+        <header>
+            <nav>
+                <img src="../images/logo.png" alt="Our Logo">
+                <div class="navLinks">
+    
+                    <!-- <img src="images/siteLogo.png" alt="Site Logo"> -->
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <p>||</p>
+                        <li><a href="about.html">About</a></li>
+                        <p>||</p>
+                        <li><a href="people.html">People</a></li>
+                        <p>||</p>
+                        <li><a href="contact.html">Contact</a></li>
+                        <p>||</p>
+                        <li><a href="example.html">Example</a></li>
+                    </ul>
+    
+                </div>
+            </nav>
+        </header>
+        <main>
+            <h1>User Registration Form</h1>
+            <div class="contactForm">
+                <div class="createForm">
+                    <form action="process_contact.php" method="post">
+                        <label for="name">Your Name:</label><br>
+                        <input type="text" id="name" name="name" required><br><br>
+                        <p class="errorText" id="usernameError"></p><br>
+
+                        <label for="email">Your Email:</label><br>
+                        <input type="email" id="email" name="email" required><br><br>
+                        <p class="errorText" id="usernameError"></p><br>
+
+                        <label for="subject">Subject:</label><br>
+                        <input type="text" id="subject" name="subject" required><br><br>
+                        <p class="errorText" id="usernameError"></p><br>
+
+                        <label for="message">Message:</label><br>
+                        <textarea id="message" name="message" rows="5" required></textarea><br><br>
+                        <p class="errorText" id="usernameError"></p><br>
+
+                        <button onclick="validateForm()">Send Message</button>
+                    </form>
+                    <h3 id="welcomeMessage"></h3>
+                </div>
+            </div>
+            <script src="../js/contact.js"></script>
+        </main>
+        <footer>
+            <p>&copy; 2024 Evan Schmitt Teaching Project</p>
+        </footer>
+    </div>
+</body>
+
+</html>

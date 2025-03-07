@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>People: Loops Demonstration</title>
+    <link rel="stylesheet" href="\css/styles.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <img src="../images/logo.png" alt="Our Logo">
+            <div class="navLinks">
+
+                <!-- <img src="images/siteLogo.png" alt="Site Logo"> -->
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <p>||</p>
+                    <li><a href="about.html">About</a></li>
+                    <p>||</p>
+                    <li><a href="people.html">People</a></li>
+                    <p>||</p>
+                    <li><a href="contact.html">Contact</a></li>
+                    <p>||</p>
+                    <li><a href="example.html">Example</a></li>
+                </ul>
+
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="mainSection">
+            <div class="peopleTable">
+                <h1>People Example: Loops</h1>
+                <p>This is a example of a looping function:</p>
+
+                <div id="userTable">
+                    <script src="../js/people.js"></script>
+                </div>
+                <p>While it is complex at first, this <span id="boldText">for loop</span> has three basic parts:</p>
+                <ol>
+                    <li>Keep an <span id="boldText">array</span> of people, all within one variable. </li>
+                    <ul>
+                        <li><span id="boldText">Arrays</span> have multiple pieces of information (in this case a name,
+                            age, and email address).</li>
+                    </ul>
+                    <li>Create a table to list the people within.</li>
+                    <li>Fill each person's information into the table, until there are no more people left.</li>
+                </ol>
+
+                <p>Now, let's talk through <span id="boldText">how</span> to do this.</p>
+                <div class="arraySection">
+                    <h3>Arrays</h3>
+                    <p>First, you need an array of people. For this example, I'll give you mine to copy:</p>
+                    <div class="code-block">
+                        <code>
+                                             <span class="parameter">var users = [ <br>
+                                                <span class="indented">{ name: "John Wick", age: 25, email: "john@example.com" },</span> <br>
+                                                 <span class="indented">{ name: "Alice (In) Wonderland", age: 30, email: "alice@example.com" },</span> <br>
+                                                 <span class="indented">{ name: "Bob Ross", age: 28, email: "bob@example.com" },</span> <br>
+                                                 <span class="indented">{ name: "Emily", age: 22, email: "emily@example.com" },</span> <br>
+                                                <span class="indented">{ name: "Michael Myers", age: 35, email: "michael@example.com" },</span><br>
+                                                 <span class="indented">{ name: "Samantha", age: 29, email: "samantha@example.com" },</span><br>
+                                                  ];
+                                                 </span>
+                                                  </code>
+                    </div>
+                </div>
+                <div class="tableSection">
+                    <h3>Table</h3>
+                    <p>Now that you have your users, how will you list them?</p>
+                    <p>You'll need a <span id="boldText">table</span> for that!</p>
+                    <p>Normally, table code looks like this:</p>
+                    <div class="code-block">
+                        <code>
+                                            <span class="parameter">
+                                                &lt;table&gt; <br>
+                                 <span class="indented">&lt;tr&gt;</span>  <br>
+                                   <span class="doubleIndent"></span> &lt;th&gt;Header 1&lt;/th&gt; <br>
+                                  <span class="doubleIndent">
+                                    &lt;th&gt;Header 2&lt;/th&gt; <br>
+                                 <span class="indented">
+                                    &lt;/tr&gt;
+                                 </span> <br>
+                                 <span class="indented">
+                                    &lt;tr&gt;
+                                 </span> <br>
+                                   <span class="doubleIndent">
+                                    &lt;td&gt;Row 1, Cell 1&lt;/td&gt;
+                                   </span> <br>
+                                   <span class="doubleIndent">
+                                    &lt;td&gt;Row 1, Cell 2&lt;/td&gt;
+                                   </span> <br>
+                                 <span class="indented">
+                                     &lt;/tr&gt;
+                                 </span><br>
+                                 <span class="indented">
+                                    &lt;tr&gt;
+                                 </span> <br>
+                                 <span class="doubleIndent">
+                                    &lt;td&gt;Row 2, Cell 1&lt;/td&gt;
+                                 </span>   <br>
+                                   <span class="doubleIndent">
+                                    &lt;td&gt;Row 2, Cell 2&lt;/td&gt;
+                                   </span> <br>
+                                 <span class="indented">
+                                    &lt;/tr&gt;
+                                 </span> <br>
+                                &lt;/table&gt;
+                                                             </span>
+                                                                  </code>
+                    </div>
+                    <p>That creates this table:</p>
+                    <div id="userTable">
+                        <table>
+                            <tr>
+                                <th>Header 1</th>
+                                <th>Header 2</th>
+                            </tr>
+                            <tr>
+                                <td>Row 1, Cell 1</td>
+                                <td>Row 1, Cell 2</td>
+                            </tr>
+                            <tr>
+                                <td>Row 2, Cell 1</td>
+                                <td>Row 2, Cell 2</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <p> <span id="boldText">NOTE:</span> My tables are styled, so yours might look a little different.
+                    </p>
+
+                </div>
+                <div class="appendSection">
+                    <h3>Adding User information</h3>
+                    <p>Our table is going to be a little less straightforward.</p>
+                    <p> Because we are adding information to the table with a loop, we need to do something called <span
+                            id="boldText">appending</span> to our table.</p>
+
+                    <p>This code is pretty advanced, so I'll provide all the hard parts for you. I'll try and break down
+                        the parts as we add them, though.</p>
+                    <p>Let's start by creating our table, like so:</p>
+
+                    <div class="code-block">
+                        <code>
+                   <span class="parameter">
+                    var userTable = document.getElementById("userTable"); <br><br>
+                    <span class="indented">var table = document.createElement("table");</span>
+                  </code>
+                    </div>
+
+                    <p>This code does the following:</p>
+                    <ul>
+                        <li>Creates a variable that looks for a section on the page with the ID of "userTable"</li>
+                        <li>Creates an empty table element in a variable called "table".</li>
+                    </ul>
+                    <p>This should go before the start of the for loop, because we will be calling these variables <span
+                            id="boldText">in the loop</span>.</p>
+                    <p>Alright, here is where the actual <span id="boldText">loop</span> comes into play. For this, we
+                        will want a for loop, as it fits the criteria best.</p>
+
+                    <p>If you remember, the code for a for loop is as follows:</p>
+                    <div class="code-block">
+                        <code>
+                       <span class="parameter">
+                        for(i = 0; &nbsp;[stopper]; &nbsp; i++) { <br>
+                        <span class="indented"> //Insert code to be repeated
+                        </span>
+                        <br> }
+                        </span>
+                      </code>
+                    </div>
+
+                    <p>In this case, the stopper attribute should be when i is <span id="boldText">greater than</span>
+                        the count of people in the
+                        table.</p>
+                    <p> This can be achieved by using <span id="boldText">users.length</span>. (remember, "users" is the
+                        name of our array of people)</p>
+
+                    <p>Now, your code should look like this:</p>
+                    <div class="code-block">
+                        <code>
+                       <span class="parameter">
+                        for (var i = 0; i < users.length; i++) { <br>
+                            <span class="indented"> //Insert code to be repeated
+                        </span>
+                        <br> }
+                        </span>
+                      </code>
+                    </div>
+
+
+                    <p>Next, we need to get each indidvidual user, so we can add them to the table.</p>
+
+                    <p>For this, we're going back to our favorite letter: i. The variable "i" works as an <span
+                            id="boldText">index</span>, because it increases during every "run" of the loop. </p>
+
+                    <p>So, using i to seperate our users, we get the following code:</p>
+
+                    <div class="code-block">
+                        <code>
+                       <span class="parameter">
+                        var userTable = document.getElementById("userTable"); <br><br>
+
+                        <span class="indented">table = document.createElement("table"); </span> <br><br>
+<!-- 
+                        <span class="indented"></span>// Loop through each user <br> -->
+                        <span class="indented">for (var i = 0; i < users.length; i++) {</span> <br>
+                            <span class="doubleIndent">var user = users[i];</span> <br>
+                            <span class="indented"> }</span>
+                        </span>
+                      </code>
+                    </div>
+
+                    <p>Now, we need to add a <span id="boldText">row</span> for our user to be put in. Once again we
+                        will be using code you haven't learned yet, but hopefully you'll start to see a pattern.</p>
+
+                    <div class="code-block">
+                        <code>
+                       <span class="parameter">
+                        var userTable = document.getElementById("userTable"); <br><br>
+
+                        <span class="indented">table = document.createElement("table"); </span> <br><br>
+<!-- 
+                        <span class="indented"></span>// Loop through each user <br> -->
+                        <span class="indented">for (var i = 0; i < users.length; i++) {</span> <br>
+                            <span class="doubleIndent">var user = users[i];</span> <br>
+                            <span class="doubleIndent">   var row = document.createElement("tr");
+                            </span> <br>
+                            <span class="indented"> }</span>
+                        </span>
+                      </code>
+                    </div>
+
+                    <p>Just like when we created the table earlier, we used <span
+                            id="boldText">document.createElement</span> to add a new element to our website.</p>
+
+                    <p>We're almost done! Now we need to add the indidvidual cells to the table, known as <span
+                            id="boldText">&lt;td&gt;</span> elements.
+                    </p>
+
+                    <p>I'm only going through the process of adding one element in depth, as the process is the same for
+                        all the elements each user has.</p>
+
+                    <p>For this example, I'll show how to add the user's name to the table. First, let's create the
+                        &lt;td&gt; element:</p>
+
+                    <div class="code-block">
+                        <code>
+                       <span class="parameter">
+                        var userTable = document.getElementById("userTable"); <br><br>
+
+                        <span class="indented">table = document.createElement("table"); </span> <br><br>
+<!-- 
+                        <span class="indented"></span>// Loop through each user <br> -->
+                        <span class="indented">for (var i = 0; i < users.length; i++) {</span> <br>
+                            <span class="doubleIndent">var user = users[i];</span> <br>
+                            <span class="doubleIndent">   var row = document.createElement("tr");
+                            </span> <br>
+                            <span class="doubleIndent">var userName = document.createElement("td");</span> <br>
+                            <span class="indented"> }</span>
+                        </span>
+                      </code>
+                    </div>
+
+                    <p>This code will create a new cell in the user's row, and call it "userName".</p>
+                    <p>Next, we need to add the content to this cell. We can call the name of this specific user by
+                        using our <span id="boldText">user</span> variable from earlier:</p>
+
+                    <div class="code-block">
+                        <code>
+                       <span class="parameter">
+                        var userTable = document.getElementById("userTable"); <br><br>
+
+                        <span class="indented">table = document.createElement("table"); </span> <br><br>
+
+                        <span class="indented">for (var i = 0; i < users.length; i++) {</span> <br>
+                            <span class="doubleIndent">var user = users[i];</span> <br>
+                            <span class="doubleIndent">   var row = document.createElement("tr");
+                            </span> <br>
+                            <span class="doubleIndent">var userName = document.createElement("td");</span> <br>
+                            <span class="doubleIndent">  userName.textContent = user.name; 
+                            </span> <br>
+                            <span class="indented"> }</span>
+                        </span>
+                      </code>
+                    </div>
+
+                    <p>This sets the data in the "userName" cell of the row to the name of the user (which we found by
+                        using <span id="boldText">user.name</span>).</p>
+
+                    <p>Now, once you've done this same process for all the other cells of user infomation, your code
+                        will look something like this:</p>
+
+
+                    <div class="code-block">
+                        <code>
+                       <span class="parameter">
+                        var userTable = document.getElementById("userTable"); <br><br>
+
+                        <span class="indented">table = document.createElement("table"); </span> <br><br>
+
+                        <span class="indented">for (var i = 0; i < users.length; i++) {</span> <br>
+                            <span class="doubleIndent">var user = users[i];</span> <br>
+                            <span class="doubleIndent">   var row = document.createElement("tr");
+                            </span> <br>
+                          <span class="doubleIndent">var index = document.createElement("td");</span>  <br>
+                          <span class="doubleIndent">index.textContent = i + 1;<span>   <br>
+                          <span class="doubleIndent">var userName = document.createElement("td");</span> <br> 
+                          <span class="doubleIndent">userName.textContent = user.name;</span> <br> 
+                          <span class="doubleIndent">var userAge = document.createElement("td");</span> <br>  
+                          <span class="doubleIndent">userAge.textContent = user.age;</span>  <br>
+                          <span class="doubleIndent">var userEmail = document.createElement("td");</span>  <br>
+                          <span class="doubleIndent">userEmail.textContent = user.email;</span>  <br>
+                            <span class="indented"> }</span>
+                        </span>
+                      </code>
+                    </div>
+
+                    <p>This will create cells for <span id="boldText">ID, Name, Age,</span> and <span
+                            id="boldText">Email</span> for a user, and fill it with their information.</p>
+                    <p> <span id="boldText">NOTE:</span> The ID of a user is increased by one because i (which we use to
+                        determine ID) has a default of 0.</p>
+
+                    <p>Alright, two more steps! Now, we need to <span id="boldText">append</span> the data into the
+                        table rows.</p>
+
+                    <p>We do this by using <span id="boldText">.appendChild</span> statments, like this:</p>
+
+                    <div class="code-block">
+                        <code>
+                       <span class="parameter">
+                         row.appendChild(index);  <br>
+                      <span class="indented">row.appendChild(userName);</span>  <br>
+                      <span class="indented"> row.appendChild(cellAge);</span>  <br>
+                      <span class="indented"> row.appendChild(cellEmail);</span>  <br>
+                        </span>
+                      </code>
+                    </div>
+
+                    <p>This will append all of our cells into the row variable, but how do we get the row into the
+                        table?</p>
+
+                    <p>Simple, we use <span id="boldText">.appendChild</span> once again!</p>
+
+
+                    <div class="code-block">
+                        <code>
+                       <span class="parameter">
+                         row.appendChild(index);  <br>
+                      <span class="indented">row.appendChild(userName);</span>  <br>
+                      <span class="indented"> row.appendChild(cellAge);</span>  <br>
+                      <span class="indented"> row.appendChild(cellEmail);</span>  <br><br>
+                      table.appendChild(row);
+                        </span>
+                      </code>
+                    </div>
+
+                    <p>Aweseome! With that, we've finished our for loop! However, there is <span
+                            id="boldText">one</span> step left.</p>
+
+                    <p>Our table is full, but it isn't displayed on our website yet. For that, we need to refer back to
+                        the <span id="boldText">userTable</span> varibale in the fist line of our file.</p>
+
+                    <p>On your HTML file, you need to have a element (I use a div element) with the id of userTable on
+                        your page.</p>
+
+                    <p>All that's left to do is append your table information into this div to display it on your site:
+                    </p>
+
+                    <div class="code-block">
+                        <code>
+                       <span class="parameter">
+                         row.appendChild(index);  <br>
+                      <span class="indented">row.appendChild(userName);</span>  <br>
+                      <span class="indented"> row.appendChild(cellAge);</span>  <br>
+                      <span class="indented"> row.appendChild(cellEmail);</span>  <br><br>
+                      table.appendChild(row);<br>
+                       } <br><br>
+                        userTable.appendChild(table);
+                        </span>
+                      </code>
+                    </div>
+
+                    <p>Congratulations! You're finished with your user loop! If you did everything right, you should
+                        have a list of users just like the example :) </p>
+
+                    <p>If not, don't worry! I'll put my code here for you to cross check against. If you copy and paste
+                        this, it should work (assuming you have the div with userTable id)</p>
+
+                    <div class="code-block">
+                        <code>
+                       <span class="parameter">
+                        <span>var userTable = document.getElementById("userTable");</span> <br><br>
+
+                        <span class="indented">var table = document.createElement("table");</span> <br><br>
+
+                        <span class="indented">// Loop through each user</span> <br>
+                        <span class="indented">for (var i = 0; i < users.length; i++) {</span> <br>
+                        <span class="doubleIndent">var user = users[i];</span> <br> <br>
+                        <span class="indented">// Create a new row for each user</span> <br>
+                        <span class="doubleIndent">var row = document.createElement("tr");</span> <br> <br>
+                        <span class="indented">// Create table cells for each user attribute</span> <br>
+                        <span class="doubleIndent">var index = document.createElement("td");</span> <br>
+                        <span class="doubleIndent">index.textContent = i + 1; // User index</span> <br>
+                        <span class="doubleIndent">var userName = document.createElement("td");</span> <br>
+                        <span class="doubleIndent">userName.textContent = user.name;</span> <br>
+                        <span class="doubleIndent">var userAge = document.createElement("td");</span> <br>
+                        <span class="doubleIndent">userAge.textContent = user.age;</span> <br>
+                        <span class="doubleIndent">var userEmail = document.createElement("td");</span> <br>
+                        <span class="doubleIndent">userEmail.textContent = user.email;</span> <br> <br>
+                        <span class="indented">// Append table cells to the row</span> <br>
+                        <span class="doubleIndent">row.appendChild(index);</span> <br>
+                        <span class="doubleIndent">row.appendChild(userName);</span> <br>
+                        <span class="doubleIndent">row.appendChild(userAge);</span> <br>
+                        <span class="doubleIndent">row.appendChild(userEmail);</span> <br> <br>
+                        <span class="indented">// Append the row to the table</span> <br>
+                        <span class="doubleIndent">table.appendChild(row);</span> <br>
+                        <span class="indented">}</span> <br> <br>
+                        <span>userTable.appendChild(table);</span>
+
+                        </span>
+                      </code>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Evan Schmitt Teaching Project</p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,208 @@
+//Variables
+$gray: #23272a;
+$siteLight: #d4edf2;
+$siteOrange: #f88f3c;
+// $oldSiteLight: #ddfcff;
+
+// Basic Styling for All Pages {
+* {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif,
+    Geneva, Tahoma, sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  // background-color: #23272a;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+main {
+  background-color: white;
+  padding-bottom: 100px;
+}
+nav {
+  background-color: $gray;
+  margin-top: -20px;
+  margin-bottom: -10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  img {
+    width: 60px;
+    margin-left: 20px;
+    padding: 10px;
+  }
+  .navLinks {
+    width: 500px;
+  }
+  a {
+    color: $siteLight;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    &:hover {
+      font-weight: bold;
+      // font-size: larger;
+    }
+  }
+  p {
+    color: $siteLight;
+  }
+
+  ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    list-style-type: none;
+  }
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: $gray;
+  color: $siteLight;
+  padding: 10px 0; /* Adjust padding as needed */
+  z-index: 100; /* Ensure the footer is above other content */
+  margin-top: 20px;
+}
+
+//Span Styles
+#boldText {
+  font-weight: bold;
+}
+.indented {
+  margin-left: 50px;
+}
+.doubleIndent {
+  margin-left: 75px;
+}
+.code-block {
+  background-color: #f4f4f4;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
+  width: 550px;
+  // overflow-x: auto;
+  // text-align: left; // Align text to the left
+  min-height: 100px;
+  code {
+    font-family: "Courier New", Courier, monospace;
+    padding: 20px;
+  }
+
+  .keyword {
+    color: #007bff;
+  }
+  .function-name {
+    color: #6f42c1;
+  }
+  .parameter {
+    color: #28a745;
+  }
+  .statement {
+    color: #dc3545;
+  }
+  .method {
+    color: #17a2b8;
+  }
+  .string {
+    color: #6f42c1;
+  }
+  .comment {
+    color: #6c757d;
+  }
+}
+.imgCaption {
+  font-weight: bold;
+  text-align: center;
+  border: 2px solid $gray;
+  padding: 20px;
+  border-radius: 50px;
+  background-color: $gray;
+  color: $siteLight;
+}
+
+//Index Page
+.mainSection {
+  justify-content: space-evenly;
+  display: flex;
+  max-width: 900px;
+  margin: 0 auto;
+
+  img {
+    max-width: 20vw;
+    min-width: 300px;
+    margin: 15px;
+    border: 2px solid $gray;
+    border-radius: 25px;
+    overflow: hidden;
+    object-fit: fill;
+  }
+}
+
+//About Page
+.loopsSection {
+  .text {
+    width: 80%;
+  }
+  .aboutImgs {
+    margin: 10px;
+    img {
+      max-width: 20vw;
+      min-width: 300px;
+      margin: 15px;
+      border: 2px solid $gray;
+      border-radius: 25px;
+      overflow: hidden;
+      object-fit: fill;
+    }
+  }
+}
+
+//Contact Page
+.contactForm {
+  button {
+    background-color: $siteOrange;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding: 15px;
+    border-radius: 50px;
+  }
+
+  input {
+    width: 60%;
+    max-width: 400px;
+  }
+  textarea {
+    width: 60%;
+    max-width: 450px;
+  }
+}
+
+//People Page
+#userTable {
+  width: 500px;
+  border: 2px solid black;
+  border-radius: 5px;
+  table {
+    width: 100%;
+  }
+  tr {
+    &:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    &:nth-child(odd) {
+      background-color: #dddddd;
+    }
+  }
+}
